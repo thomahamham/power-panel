@@ -2,8 +2,8 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
  
 -- สร้าง Window
 local Window = Rayfield:CreateWindow({
-    Name = "🌀 ไลฟ์สาระ ไปวันๆ v1",
-    LoadingTitle = "ยินดีต้อนรับสู่ไลฟ์สาระ ไปวันๆ v1 สคริปต์ของไลฟ์สาระไปวันๆ",
+    Name = "🌀 ไลฟ์สาระ ไปวันๆ v1.2",
+    LoadingTitle = "ยินดีต้อนรับ Power Panel v1 สคริปต์ของไลฟ์สาระไปวันๆ",
     LoadingSubtitle = "กำลังโหลด...",
     ConfigurationSaving = {
         Enabled = true,
@@ -15,18 +15,8 @@ local Window = Rayfield:CreateWindow({
         Invite = "dSyCsRpU62",
         RememberJoins = true
     },
-    KeySystem = true,
-    KeySettings = {
-        Title = "🔑 ระบบใส่รหัส",
-        Subtitle = "ใส่รหัสเพื่อใช้งานสคริปต์",
-        Note = "ติดต่อเจ้าของเพื่อรับรหัส",
-        FileName = "KeySystemConfig",
-        SaveKey = true,
-        GrabKeyFromSite = false, -- ใช้รหัสในโค้ด ไม่ดึงจากเว็บ
-        Key = "L!v3$UrA-2025-X9zQ8wP2rT7bF6kLqR8sV1bN4mK3tY2pF5jW9zH6cD0aE7xU1oQ" -- รหัสที่ถูกต้อง
-    }
-}) -- <-- ปิดวงเล็บตรงนี้ให้ครบ
-
+    KeySystem = false
+})
  
 -- แท็บตัวละคร
 local MainTab = Window:CreateTab("ตัวละคร", 6026568198)
@@ -39,7 +29,6 @@ local player = Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 local hrp = char:WaitForChild("HumanoidRootPart")
 local humanoid = char:WaitForChild("Humanoid")
-
  
 -- ตัวแปรฟังก์ชัน
 local flying = false
@@ -49,8 +38,6 @@ local superSpeed = false
 local runSpeed = 32
 local noclipEnabled = false
 local infJumpEnabled = false
-
-
  
 -- ฟังก์ชันบิน
 local function startFlying()
@@ -103,13 +90,6 @@ local function toggleSpeed(on)
         Duration = 3,
         Image = 6023426921
     })
-end
-
--- ฟังก์ชันปรับ Jump Power
-local function updateJumpPower()
-    if humanoid then
-        humanoid.JumpPower = jumpPowerEnabled and jumpPowerValue or 50 -- 50 คือค่า default Roblox
-    end
 end
  
 -- Toggle & Slider UI
@@ -285,24 +265,9 @@ friendTab:CreateButton({
         })
     end
 })
-
-local cameraTab = Window:CreateTab("📷 โหมดถ่ายภาพ", 6026568198)
-
-cameraTab:CreateLabel("วิธีการใช้งาน กดปุ่มกล้อง แล้วกด shift+p จะทำให้เข้าสู่โหมดฟรีcam แล้วเลื่อนลูกกลิ้งเมาส์เพื่อซูม กดshift เพื่อสโลว์ กด shift+p อีรอบเพื่อออกจากโหมดกล้อง")
-cameraTab:CreateLabel("ข้อเสียโหมดกล้อง อาจจะทำให้ pngบางจุดหาย แล้วบางเกมอาจจะไม่รองรับ")
-cameraTab:CreateLabel("หากจะถ่ายภาพแนะนำให้ปิด script gui เนื่องจาก script gui เป็น gui นอก เวลาเปิดโหมดกล้อง script จะไม่หาย")
-
-cameraTab:CreateButton({
-    Name = "📷 เปิดโหมดกล้อง",
-    Callback = function()
-        Rayfield:Notify({Title = "กล้องพร้อมใช้งาน", Content = "กด shift+p เพื่อเริ่มต้นใช้งาน", Duration = 3, Image = 6026568198})
-        loadstring(game:HttpGet('https://pastebin.com/raw/yJ51HKy9'))()
-    end
-})
-
-
+ 
 -- แท็บสคริปต์เพิ่มเติม
-local extraTab = Window:CreateTab("🧩 สคริปต์ 99 วัน", 6031280882)
+local extraTab = Window:CreateTab("🧩 99คืนในป่าค่ายอื่น", 6031280882)
  
 extraTab:CreateButton({
     Name = "💣 รัน SomTank",
@@ -321,35 +286,77 @@ extraTab:CreateButton({
 })
  
 extraTab:CreateButton({
-    Name = "🌌 รัน Voidware",
+    Name = "🌌 รัน Voidware Bug เยอะกิน Spec เครื่อง",
     Callback = function()
         Rayfield:Notify({Title = "🌌 กำลังโหลด Voidware...", Content = "กรุณารอสักครู่", Duration = 3, Image = 6026568198})
         loadstring(game:HttpGet("https://rawscripts.net/raw/99-Nights-in-the-Forest-KEYLESS-Best-Script-for-99-Nights-in-the-Forest-53093"))()
     end
 })
  
- local extraTab = Window:CreateTab("🧩 สคริปต์เพิ่มเติม", 6031280882)
+ local extraTab = Window:CreateTab("🧩 สคริปต์ค่ายอื่น", 6031280882)
 
  extraTab:CreateButton({
-    Name = "🌌 รัน dex(หน้าต่างdev)",
+    Name = "💣 รัน power panel aimbot",
     Callback = function()
-        Rayfield:Notify({Title = "🌌 กำลังโหลด dex...", Content = "กรุณารอสักครู่", Duration = 3, Image = 6026568198})
+        Rayfield:Notify({Title = "🚀 กำลังโหลด PPA...", Content = "กรุณารอสักครู่", Duration = 3, Image = 6026568198})
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/thomahamham/power-panel/refs/heads/main/power%20panel%20aimbot'))()
+    end
+})
+
+ extraTab:CreateButton({
+    Name = "💣 รัน dex (หน้าต่างdev)",
+    Callback = function()
+        Rayfield:Notify({Title = "🚀 กำลังโหลด dex...", Content = "กรุณารอสักครู่", Duration = 3, Image = 6026568198})
         loadstring(game:HttpGet("https://obj.wearedevs.net/2/scripts/Dex%20Explorer.lua"))()
     end
 })
 
-local settingsTab = Window:CreateTab("⚙️ การตั้งค่า", 6034979821)
+ extraTab:CreateButton({
+    Name = "💣 รัน inf yield",
+    Callback = function()
+        Rayfield:Notify({Title = "🚀 กำลังโหลด inf yield...", Content = "กรุณารอสักครู่", Duration = 3, Image = 6026568198})
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/thomahamham/power-panel/refs/heads/main/power%20panel%20inf%20yield'))()
+    end
+})
+
+ extraTab:CreateButton({
+    Name = "ติดตามมมมม",
+    Callback = function()
+        Rayfield:Notify({Title = "ฮั่นแหน่ะ บอกแล้วให้รอติดตาม ", Content = "กดตอนนี้เขาไม่เอาน๊าาาาา", Duration = 3, Image = 6026568198})
+        
+    end
+})
+
+ extraTab:CreateButton({
+    Name = "ติดตามมมมม",
+    Callback = function()
+        Rayfield:Notify({Title = "ฮั่นแหน่ะ บอกแล้วให้รอติดตาม ", Content = "กดตอนนี้เขาไม่เอาน๊าาาาา", Duration = 3, Image = 6026568198})
+        
+    end
+})
+
+ extraTab:CreateButton({
+    Name = "ติดตามมมมม",
+    Callback = function()
+        Rayfield:Notify({Title = "ฮั่นแหน่ะ บอกแล้วให้รอติดตาม ", Content = "กดตอนนี้เขาไม่เอาน๊าาาาา", Duration = 3, Image = 6026568198})
+        
+    end
+})
+
+
+
+
+
+
+
 
 -- แท็บรายการอัพเดต
 local creditTab = Window:CreateTab("📜รายการอัพเดต",6034989579)
-creditTab:CreateLabel("version 1.3.3 (+)แท็บรายการอัพเดต แท็บสคริปต์เพิ่มเติม แท็บวาป แก้ไขให้วาปใช้ได้กับ displayname")
-creditTab:CreateLabel("version 1.3.4 ไม่ประสงค์บอกอัพเดต")
-creditTab:CreateLabel("version 1.3.5 (=)เปลี่ยนวาปให้เป็นไม่ต้องพิมพ์แค่เลือกแล้วกดก็สามารถเลือกวาปได้ by thomas")
-creditTab:CreateLabel("version 1.3.6 (=)เวลาตายทำให้ ปุ่มทุกปุ่มกลับมาหยุดทำงาน ต้องเปิดใหม่ทุกครั้งหลังตาย")
-creditTab:CreateLabel("version 1.3.7 แก้บัค เล็กๆน้อยๆ")
-creditTab:CreateLabel("version 1.3.8 แก้บัค เล็กๆน้อยๆ")
-creditTab:CreateLabel("version 1.3.9 (+)เพิ่มโหมดกล้อง ")
- 
+creditTab:CreateLabel("")
+creditTab:CreateLabel("")
+creditTab:CreateLabel("")
+creditTab:CreateLabel("")
+creditTab:CreateLabel("")
  
 -- แท็บเครดิต
 local creditTab2 = Window:CreateTab("📜 เครดิต",6034989579)
@@ -357,8 +364,8 @@ creditTab2:CreateLabel("📜 เครดิต")
 creditTab2:CreateLabel("owner by livezala")
 creditTab2:CreateLabel("original script by dion_ktl")
 creditTab2:CreateLabel("นำมาต่อยอด by thomas (โทมัส)")
-creditTab2:CreateLabel("อัพเดต 11:36 PM 10/14/2025")
-creditTab2:CreateLabel("version 1.3.9fu")
+creditTab2:CreateLabel("อัพเดต 10/23/2025 11::54 PM")
+creditTab2:CreateLabel("version 1.3.4fu")
 creditTab2:CreateLabel("รับอัพเดต discord:dSyCsRpU62")
  
 -- แท็บเคาท์ดาวน์ปีใหม่
@@ -429,6 +436,7 @@ UIS.JumpRequest:Connect(function()
     end
 end)
  
+-- รีเซ็ตตัวละครเมื่อ respawn
 player.CharacterAdded:Connect(function(c)
     char=c
     hrp=c:WaitForChild("HumanoidRootPart")
@@ -437,21 +445,8 @@ player.CharacterAdded:Connect(function(c)
     toggleSpeed(false)
     noclipEnabled=false
     infJumpEnabled=false
-    -- รีเซ็ตสถานะของ Toggle บน UI
-    flyToggle:Set(false)
-    speedToggle:Set(false)
-    noclipToggle:Set(false)
-    infJumpToggle:Set(false)
-
-    -- แจ้งเตือนผู้เล่น
-    Rayfield:Notify({
-        Title = "💀 ตัวละครตาย",
-        Content = "ระบบทั้งหมดถูกปิดแล้ว กดเปิดใหม่หากต้องการใช้งานอีกครั้ง",
-        Duration = 5,
-        Image = 6026568198
-    }) -- ✅ ปิดให้ครบ
+    Rayfield:LoadConfiguration()
 end)
-
  
 Rayfield:Notify({
     Title="🎉 โปรโหลดสำเร็จ!",
